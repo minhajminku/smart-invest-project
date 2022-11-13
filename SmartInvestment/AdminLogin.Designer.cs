@@ -29,26 +29,26 @@ namespace SmartInvestment
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBx_User_Name = new System.Windows.Forms.TextBox();
+            this.txtBx_Password = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_login = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtBx_User_Name
             // 
-            this.textBox1.Location = new System.Drawing.Point(297, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 26);
-            this.textBox1.TabIndex = 0;
+            this.txtBx_User_Name.Location = new System.Drawing.Point(297, 90);
+            this.txtBx_User_Name.Name = "txtBx_User_Name";
+            this.txtBx_User_Name.Size = new System.Drawing.Size(186, 26);
+            this.txtBx_User_Name.TabIndex = 0;
             // 
-            // textBox2
+            // txtBx_Password
             // 
-            this.textBox2.Location = new System.Drawing.Point(297, 149);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(186, 26);
-            this.textBox2.TabIndex = 1;
+            this.txtBx_Password.Location = new System.Drawing.Point(297, 149);
+            this.txtBx_Password.Name = "txtBx_Password";
+            this.txtBx_Password.Size = new System.Drawing.Size(186, 26);
+            this.txtBx_Password.TabIndex = 1;
             // 
             // label1
             // 
@@ -86,8 +86,8 @@ namespace SmartInvestment
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBx_Password);
+            this.Controls.Add(this.txtBx_User_Name);
             this.Name = "AdminLogin";
             this.Text = "Admin Login";
             this.ResumeLayout(false);
@@ -97,8 +97,8 @@ namespace SmartInvestment
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBx_User_Name;
+        private System.Windows.Forms.TextBox txtBx_Password;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_login;

@@ -22,7 +22,13 @@ namespace SmartInvestment
         {
             DataAceess oAccess = new DataAceess();//sfirm_is is db name
             DataSet dtDs = oAccess.getDataSet(SqlQueries.GetUserByName_Password(this.txtBx_User_Name.Text,this.txtBx_Password.Text), false);
-
+            if(dtDs.Tables.Count>0)
+            {
+                FrmInvestmentCategory frm = new FrmInvestmentCategory();
+                frm.ShowDialog();
+               
+            }
+            Close();
         }
     }
 }

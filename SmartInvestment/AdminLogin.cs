@@ -20,9 +20,14 @@ namespace SmartInvestment
         }
         private void btn_login_Click(object sender, EventArgs e)
         {
-            //sfirm_is is db name
-            DataSet dtDs = oAccess.getDataSet(SqlQueries.GetUserByName_Password(txtBx_User_Name.Text,txtBx_Password.Text), false);
-
+            DataSet dtDs = oAccess.getDataSet(SqlQueries.GetUserByName_Password(this.txtBx_User_Name.Text,this.txtBx_Password.Text), false);
+            if(dtDs.Tables.Count>0)
+            {
+                FrmInvestmentCategory frm = new FrmInvestmentCategory();
+                frm.ShowDialog();
+               
+            }
+            Close();
         }
     }
 }

@@ -13,14 +13,13 @@ namespace SmartInvestment
 {
     public partial class AdminLogin : Form
     {
-
+        private readonly DataAceess oAccess = new DataAceess();
         public AdminLogin()
         {
             InitializeComponent();
         }
         private void btn_login_Click(object sender, EventArgs e)
         {
-            DataAceess oAccess = new DataAceess();//sfirm_is is db name
             DataSet dtDs = oAccess.getDataSet(SqlQueries.GetUserByName_Password(this.txtBx_User_Name.Text,this.txtBx_Password.Text), false);
             if(dtDs.Tables.Count>0)
             {

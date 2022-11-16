@@ -61,6 +61,13 @@
     <Compile Include="FrmInvestmentCategory.Designer.cs">
       <DependentUpon>FrmInvestmentCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmInvestmentIdea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInvestmentIdea.Designer.cs">
+      <DependentUpon>FrmInvestmentIdea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InvestmentIdea.cs" />
     <Compile Include="Models\InvestmentCategory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +76,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInvestmentCategory.resx">
       <DependentUpon>FrmInvestmentCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInvestmentIdea.resx">
+      <DependentUpon>FrmInvestmentIdea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

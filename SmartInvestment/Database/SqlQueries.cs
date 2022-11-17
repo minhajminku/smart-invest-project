@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartInvestment.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,46 @@ namespace SmartInvestment.Database
             condition = investmentIdeaId != null ? " WHERE Investment_Idea_Id = " + investmentIdeaId : " ";
 
             return String.Format("SELECT Investment_Idea_Id,Investment_Idea_Name,Investment_Category_Id,Created_Date FROM dbo.Investment_Idea {0}", condition);
+        }
+        public static string AddOrUpdateInvestmentIdea(InvestmentIdea idea)
+        {
+            condition = idea.IdeaId != null ? " WHERE Investment_Idea_Id = " + idea.IdeaId : " ";
+            if (idea.IdeaId != null)
+            {
+                return String.Format("UPDATE dbo.Investment_Idea " +
+                                    " SET Investment_Idea_Name = '{0}', " +
+                                    " Investment_Category_Id = {1}, " +
+                                    " Updated_By = '{2}', " +
+                                    " Updated_Date = GETDATE() " +
+                                    " {3}",
+                                    idea.Idea_Name,
+                                    idea.CategoryID,
+                                    "userName",
+                                    condition);
+            }
+            else
+            {
+                return String.Format("INSERT INTO dbo.Investment_Idea" +
+                        "("+
+                            " Investment_Idea_Name," +
+                            " Investment_Category_Id," +
+                            " Created_By," +
+                            " Created_Date" +
+                        " )" +
+                        " VALUES" +
+                        "( '{0}'," +
+                           "{1}," +
+                           " '{2}'," +
+                           " DEFAULT" +
+                            ")",
+                            idea.Idea_Name,
+                            idea.CategoryID,
+                            "username");
+            }
+        }
+        public static string DeleteIdea(int investmentIdeaId)
+        {
+            return String.Format("DELETE FROM dbo.Investment_Idea WHERE Investment_Idea_Id = {0}", investmentIdeaId);
         }
     }
 }

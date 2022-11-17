@@ -23,7 +23,8 @@ namespace SmartInvestment
             DataSet dtDs = oAccess.getDataSet(SqlQueries.GetUserByName_Password(this.txtBx_User_Name.Text,this.txtBx_Password.Text), false);
             if(dtDs.Tables.Count>0)
             {
-                FrmInvestmentCategory frm = new FrmInvestmentCategory();
+                //FrmInvestmentCategory frm = new FrmInvestmentCategory();
+                FrmInvestmentIdea frm = new FrmInvestmentIdea(); 
                 frm.ShowDialog();
                
             }

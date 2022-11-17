@@ -13,4 +13,10 @@ namespace SmartInvestment.Models
         public DateTime CreatedDate { get; set; }
 
     }
+    public class InvestmentCategorySelect
+    {
+        public int CategoryId { get; set; }
+        public string Category_Name { get; set; }
+
+    }
 }

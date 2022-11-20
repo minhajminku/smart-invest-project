@@ -195,6 +195,7 @@ namespace SmartInvestment
             this.Controls.Add(this.txtBx_IdeaId);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FrmInvestmentIdea";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmInvestmentIdea";
             this.Load += new System.EventHandler(this.FrmInvestmentIdea_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

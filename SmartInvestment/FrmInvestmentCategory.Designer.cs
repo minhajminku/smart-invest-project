@@ -67,7 +67,7 @@ namespace SmartInvestment
             // 
             this.lbl_Idea_Id.AutoSize = true;
             this.lbl_Idea_Id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Idea_Id.Location = new System.Drawing.Point(37, 32);
+            this.lbl_Idea_Id.Location = new System.Drawing.Point(47, 42);
             this.lbl_Idea_Id.Name = "lbl_Idea_Id";
             this.lbl_Idea_Id.Size = new System.Drawing.Size(116, 22);
             this.lbl_Idea_Id.TabIndex = 7;
@@ -77,7 +77,7 @@ namespace SmartInvestment
             // 
             this.lbl_Idea_Name.AutoSize = true;
             this.lbl_Idea_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Idea_Name.Location = new System.Drawing.Point(163, 32);
+            this.lbl_Idea_Name.Location = new System.Drawing.Point(173, 42);
             this.lbl_Idea_Name.Name = "lbl_Idea_Name";
             this.lbl_Idea_Name.Size = new System.Drawing.Size(148, 22);
             this.lbl_Idea_Name.TabIndex = 9;
@@ -101,7 +101,7 @@ namespace SmartInvestment
             // 
             this.lbl_category_CreatedDate.AutoSize = true;
             this.lbl_category_CreatedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_category_CreatedDate.Location = new System.Drawing.Point(354, 32);
+            this.lbl_category_CreatedDate.Location = new System.Drawing.Point(364, 42);
             this.lbl_category_CreatedDate.Name = "lbl_category_CreatedDate";
             this.lbl_category_CreatedDate.Size = new System.Drawing.Size(113, 22);
             this.lbl_category_CreatedDate.TabIndex = 12;
@@ -171,6 +171,8 @@ namespace SmartInvestment
             this.Controls.Add(this.txtBx_CategoryId);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FrmInvestmentCategory";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmInvestmentCategory";
             this.Load += new System.EventHandler(this.FrmInvestmentCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

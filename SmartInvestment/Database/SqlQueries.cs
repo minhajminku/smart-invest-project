@@ -67,5 +67,40 @@ namespace SmartInvestment.Database
         {
             return String.Format("DELETE FROM dbo.Investment_Idea WHERE Investment_Idea_Id = {0}", investmentIdeaId);
         }
+        public static string AddOrUpdateInvestmentCategory(InvestmentCategory category)
+        {
+            condition = category.CategoryId != 0 ? " WHERE Investment_Category_Id = " + category.CategoryId : " ";
+            if (category.CategoryId != 0)
+            {
+                return String.Format("UPDATE dbo.Investment_Category " +
+                                    " SET Investment_Category_Name = '{0}', " +
+                                    " Updated_By = '{1}', " +
+                                    " Updated_Date = GETDATE() " +
+                                    " {2}",
+                                    category.Category_Name,
+                                    "userName",
+                                    condition);
+            }
+            else
+            {
+                return String.Format("INSERT INTO dbo.Investment_Category" +
+                        "(" +
+                            " Investment_Category_Name," +
+                            " Created_By," +
+                            " Created_Date" +
+                        " )" +
+                        " VALUES" +
+                        "( '{0}'," +
+                          " '{1}'," +
+                           " DEFAULT" +
+                            ")",
+                           category.Category_Name,
+                            "username");
+            }
+        }
+        public static string DeleteCategory(int investmentCategoryId)
+        {
+            return String.Format("DELETE FROM dbo.Investment_Category WHERE Investment_Category_Id = {0}", investmentCategoryId);
+        }
     }
 }

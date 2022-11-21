@@ -69,6 +69,57 @@ namespace SmartInvestment.Database
                             "username");
             }
         }
+        public static string AddOrUpdateclient(Client client)
+        {
+            condition = client.ClientId != 0 ? " WHERE Client_Id = " + client.ClientId : " ";
+            if (client.ClientId != 0)
+            {
+                return String.Format("UPDATE dbo.Client " +
+                                    " SET Client_First_Name = '{0}', " +
+                                    " Client_Last_Name = '{1}', " +
+                                    " Dmat_Number = '{2}', " +
+                                    " Mobile_Number = '{3}', " +
+                                    " Client_Gender = {4}, " +
+                                    " Updated_By = '{5}', " +
+                                    " Updated_Date = GETDATE() " +
+                                    " {6}",
+                                    client.Client_First_Name,
+                                    client.Client_Last_Name,
+                                    client.Dmat_Number,
+                                    client.Mobile_Number,
+                                    client.Client_Gender,
+                                    "userName",
+                                    condition);
+            }
+            else
+            {
+                return String.Format("INSERT INTO dbo.Client" +
+                        "(" +
+                            " Client_First_Name," +
+                            " Client_Last_Name," +
+                            " Dmat_Number," +
+                            " Mobile_Number," +
+                            " Client_Gender,"+
+                            " Created_By," +
+                            " Created_Date" +
+                        " )" +
+                        " VALUES" +
+                        "( '{0}'," +
+                           " '{1}'," +
+                           " '{2}'," +
+                          " '{3}'," +
+                          " '{4}'," +
+                           " '{5}'," +
+                           " DEFAULT" +
+                            ")",
+                             client.Client_First_Name,
+                             client.Client_Last_Name,
+                             client.Dmat_Number,
+                             client.Mobile_Number,
+                             client.Client_Gender,
+                            "username");
+            }
+        }
         public static string DeleteIdea(int investmentIdeaId)
         {
             return String.Format("DELETE FROM dbo.Investment_Idea WHERE Investment_Idea_Id = {0}", investmentIdeaId);

@@ -77,5 +77,63 @@ namespace SmartInvestment
             var Clients = this.Clients;
             dataGrid_clients.DataSource = Clients;
         }
+
+        private void bttnAddNew_Click(object sender, EventArgs e)
+        {
+            EnableDisableClearForm(true);
+        }
+        private void EnableDisableClearForm(bool isSave)
+        {
+            bttnSave.Visible = isSave;
+            bttn_Update.Visible = !isSave;
+            bttnDelete.Visible = !isSave;
+
+            if (isSave)
+            {
+                txtBx_ClientId.Text = "";
+                txtBx_FN.Text = "";
+                txtBx_LN.Text = "";
+                txtBx_Dmat_Num.Text = "";
+                txtBx_Mob_Num.Text = "";
+            }
+            dataGrid_clients.Focus();
+        }
+
+        private void bttnSave_Click(object sender, EventArgs e)
+        {
+            AddOrUpdateClient();
+            EnableDisableClearForm(true);
+        }
+        private void AddOrUpdateClient()
+        {
+
+            var client = new Client
+            {
+                Client_First_Name = txtBx_FN.Text,
+                Client_Last_Name = txtBx_LN.Text,
+                Dmat_Number = txtBx_Dmat_Num.Text,
+                Mobile_Number = txtBx_Mob_Num.Text,
+                Client_Gender = comboBox_gender.SelectedValue.ToString(),
+                
+
+            };
+            if (!string.IsNullOrEmpty(txtBx_ClientId.Text))
+            {
+                client.ClientId = Convert.ToInt32(txtBx_ClientId.Text);
+            }
+
+            try
+            {
+                var result = oAccess.executeSql(SqlQueries.AddOrUpdateclient(client));
+                this.Clients = Getclients();
+                dataGrid_clients.DataSource = this.Clients;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message);
+            }
+
+        }
     }
 }

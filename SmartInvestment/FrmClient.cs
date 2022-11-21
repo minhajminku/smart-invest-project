@@ -135,5 +135,11 @@ namespace SmartInvestment
             }
 
         }
+
+        private void btn_add_client_inv_preference_Click(object sender, EventArgs e)
+        {
+            frm_client_preference frm = new frm_client_preference();
+            frm.Show();
+        }
     }
 }

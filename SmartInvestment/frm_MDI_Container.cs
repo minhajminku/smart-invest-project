@@ -19,7 +19,9 @@ namespace SmartInvestment
 
         private void bttn_Client_Click(object sender, EventArgs e)
         {
-
+            FrmClient frm = new FrmClient();
+            frm.MdiParent = frm_MDI_Container.ActiveForm;
+            frm.Show();
         }
 
         private void bttn_investmentCategories_Click(object sender, EventArgs e)

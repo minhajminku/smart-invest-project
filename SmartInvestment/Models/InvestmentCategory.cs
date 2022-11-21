@@ -19,4 +19,11 @@ namespace SmartInvestment.Models
         public string Category_Name { get; set; }
 
     }
+
+    public class GenderSelect
+    {
+        public int GenderId { get; set; }
+        public string Gender_Name { get; set; }
+
+    }
 }

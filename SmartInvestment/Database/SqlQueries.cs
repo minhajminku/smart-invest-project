@@ -27,6 +27,12 @@ namespace SmartInvestment.Database
 
             return String.Format("SELECT Investment_Idea_Id,Investment_Idea_Name,Investment_Category_Id,Created_Date FROM dbo.Investment_Idea {0}", condition);
         }
+        public static string GetClients(int? clientId = null)
+        {
+            condition = clientId != null ? " WHERE Client_Id = " + clientId : " ";
+
+            return String.Format("SELECT Client_Id,Client_First_Name,Client_Last_Name,Client_Gender,Dmat_Number,Mobile_Number,Created_Date FROM dbo.Client {0}", condition);
+        }
         public static string AddOrUpdateInvestmentIdea(InvestmentIdea idea)
         {
             condition = idea.IdeaId != null ? " WHERE Investment_Idea_Id = " + idea.IdeaId : " ";
@@ -60,6 +66,57 @@ namespace SmartInvestment.Database
                             ")",
                             idea.Idea_Name,
                             idea.CategoryID,
+                            "username");
+            }
+        }
+        public static string AddOrUpdateclient(Client client)
+        {
+            condition = client.ClientId != 0 ? " WHERE Client_Id = " + client.ClientId : " ";
+            if (client.ClientId != 0)
+            {
+                return String.Format("UPDATE dbo.Client " +
+                                    " SET Client_First_Name = '{0}', " +
+                                    " Client_Last_Name = '{1}', " +
+                                    " Dmat_Number = '{2}', " +
+                                    " Mobile_Number = '{3}', " +
+                                    " Client_Gender = {4}, " +
+                                    " Updated_By = '{5}', " +
+                                    " Updated_Date = GETDATE() " +
+                                    " {6}",
+                                    client.Client_First_Name,
+                                    client.Client_Last_Name,
+                                    client.Dmat_Number,
+                                    client.Mobile_Number,
+                                    client.Client_Gender,
+                                    "userName",
+                                    condition);
+            }
+            else
+            {
+                return String.Format("INSERT INTO dbo.Client" +
+                        "(" +
+                            " Client_First_Name," +
+                            " Client_Last_Name," +
+                            " Dmat_Number," +
+                            " Mobile_Number," +
+                            " Client_Gender,"+
+                            " Created_By," +
+                            " Created_Date" +
+                        " )" +
+                        " VALUES" +
+                        "( '{0}'," +
+                           " '{1}'," +
+                           " '{2}'," +
+                          " '{3}'," +
+                          " '{4}'," +
+                           " '{5}'," +
+                           " DEFAULT" +
+                            ")",
+                             client.Client_First_Name,
+                             client.Client_Last_Name,
+                             client.Dmat_Number,
+                             client.Mobile_Number,
+                             client.Client_Gender,
                             "username");
             }
         }

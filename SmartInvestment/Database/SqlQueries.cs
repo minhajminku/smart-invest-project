@@ -79,7 +79,7 @@ namespace SmartInvestment.Database
                                     " Client_Last_Name = '{1}', " +
                                     " Dmat_Number = '{2}', " +
                                     " Mobile_Number = '{3}', " +
-                                    " Client_Gender = {4}, " +
+                                    " Client_Gender = '{4}', " +
                                     " Updated_By = '{5}', " +
                                     " Updated_Date = GETDATE() " +
                                     " {6}",
@@ -119,6 +119,10 @@ namespace SmartInvestment.Database
                              client.Client_Gender,
                             "username");
             }
+        }
+        public static string DeleteClient(int clientId)
+        {
+            return String.Format("DELETE FROM dbo.Client WHERE Client_Id = {0}", clientId);
         }
         public static string DeleteIdea(int investmentIdeaId)
         {

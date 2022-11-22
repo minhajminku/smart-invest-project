@@ -166,7 +166,7 @@ namespace SmartInvestment
                 MessageBox.Show("Deleted Success!");
             }
             else
-                MessageBox.Show("Please select valid idea!");
+                MessageBox.Show("Please select valid category!");
         }
     }
 }

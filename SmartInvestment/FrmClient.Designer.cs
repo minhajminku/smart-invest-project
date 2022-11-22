@@ -37,7 +37,6 @@ namespace SmartInvestment
             this.bttnDelete = new System.Windows.Forms.Button();
             this.bttnSave = new System.Windows.Forms.Button();
             this.bttn_Update = new System.Windows.Forms.Button();
-            this.comboBox_gender = new System.Windows.Forms.ComboBox();
             this.lbl_dmat = new System.Windows.Forms.Label();
             this.txtBx_Dmat_Num = new System.Windows.Forms.TextBox();
             this.lbl_Mobile_no = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@ namespace SmartInvestment
             this.txtBx_FN = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGrid_clients = new System.Windows.Forms.DataGridView();
+            this.comboBox_gender = new System.Windows.Forms.ComboBox();
             this.panel_Form.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_clients)).BeginInit();
@@ -56,6 +56,7 @@ namespace SmartInvestment
             // 
             // panel_Form
             // 
+            this.panel_Form.Controls.Add(this.comboBox_gender);
             this.panel_Form.Controls.Add(this.btn_add_client_inv_preference);
             this.panel_Form.Controls.Add(this.lbl_Client_Id);
             this.panel_Form.Controls.Add(this.txtBx_ClientId);
@@ -63,7 +64,6 @@ namespace SmartInvestment
             this.panel_Form.Controls.Add(this.bttnDelete);
             this.panel_Form.Controls.Add(this.bttnSave);
             this.panel_Form.Controls.Add(this.bttn_Update);
-            this.panel_Form.Controls.Add(this.comboBox_gender);
             this.panel_Form.Controls.Add(this.lbl_dmat);
             this.panel_Form.Controls.Add(this.txtBx_Dmat_Num);
             this.panel_Form.Controls.Add(this.lbl_Mobile_no);
@@ -111,59 +111,55 @@ namespace SmartInvestment
             // bttnAddNew
             // 
             this.bttnAddNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnAddNew.Location = new System.Drawing.Point(514, 27);
+            this.bttnAddNew.Location = new System.Drawing.Point(780, 54);
             this.bttnAddNew.Name = "bttnAddNew";
             this.bttnAddNew.Size = new System.Drawing.Size(150, 40);
             this.bttnAddNew.TabIndex = 33;
             this.bttnAddNew.Text = "Add New";
             this.bttnAddNew.UseVisualStyleBackColor = true;
+            this.bttnAddNew.Click += new System.EventHandler(this.bttnAddNew_Click_1);
             // 
             // bttnDelete
             // 
             this.bttnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnDelete.Location = new System.Drawing.Point(809, 119);
+            this.bttnDelete.Location = new System.Drawing.Point(623, 119);
             this.bttnDelete.Name = "bttnDelete";
-            this.bttnDelete.Size = new System.Drawing.Size(92, 59);
+            this.bttnDelete.Size = new System.Drawing.Size(120, 59);
             this.bttnDelete.TabIndex = 32;
             this.bttnDelete.Text = "Delete";
             this.bttnDelete.UseVisualStyleBackColor = true;
             this.bttnDelete.Visible = false;
+            this.bttnDelete.Click += new System.EventHandler(this.bttnDelete_Click);
             // 
             // bttnSave
             // 
             this.bttnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnSave.Location = new System.Drawing.Point(809, 64);
+            this.bttnSave.Location = new System.Drawing.Point(623, 64);
             this.bttnSave.Name = "bttnSave";
-            this.bttnSave.Size = new System.Drawing.Size(92, 59);
+            this.bttnSave.Size = new System.Drawing.Size(120, 59);
             this.bttnSave.TabIndex = 31;
             this.bttnSave.Text = "Save";
             this.bttnSave.UseVisualStyleBackColor = true;
             this.bttnSave.Visible = false;
+            this.bttnSave.Click += new System.EventHandler(this.bttnSave_Click_1);
             // 
             // bttn_Update
             // 
             this.bttn_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttn_Update.Location = new System.Drawing.Point(809, 12);
+            this.bttn_Update.Location = new System.Drawing.Point(623, 12);
             this.bttn_Update.Name = "bttn_Update";
-            this.bttn_Update.Size = new System.Drawing.Size(92, 59);
+            this.bttn_Update.Size = new System.Drawing.Size(120, 59);
             this.bttn_Update.TabIndex = 30;
             this.bttn_Update.Text = "Update";
             this.bttn_Update.UseVisualStyleBackColor = true;
             this.bttn_Update.Visible = false;
-            // 
-            // comboBox_gender
-            // 
-            this.comboBox_gender.FormattingEnabled = true;
-            this.comboBox_gender.Location = new System.Drawing.Point(176, 106);
-            this.comboBox_gender.Name = "comboBox_gender";
-            this.comboBox_gender.Size = new System.Drawing.Size(118, 28);
-            this.comboBox_gender.TabIndex = 29;
+            this.bttn_Update.Click += new System.EventHandler(this.bttn_Update_Click);
             // 
             // lbl_dmat
             // 
             this.lbl_dmat.AutoSize = true;
             this.lbl_dmat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_dmat.Location = new System.Drawing.Point(325, 18);
+            this.lbl_dmat.Location = new System.Drawing.Point(162, 85);
             this.lbl_dmat.Name = "lbl_dmat";
             this.lbl_dmat.Size = new System.Drawing.Size(131, 22);
             this.lbl_dmat.TabIndex = 28;
@@ -171,7 +167,7 @@ namespace SmartInvestment
             // 
             // txtBx_Dmat_Num
             // 
-            this.txtBx_Dmat_Num.Location = new System.Drawing.Point(329, 41);
+            this.txtBx_Dmat_Num.Location = new System.Drawing.Point(166, 108);
             this.txtBx_Dmat_Num.Name = "txtBx_Dmat_Num";
             this.txtBx_Dmat_Num.Size = new System.Drawing.Size(97, 26);
             this.txtBx_Dmat_Num.TabIndex = 27;
@@ -197,7 +193,7 @@ namespace SmartInvestment
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(172, 83);
+            this.label1.Location = new System.Drawing.Point(13, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 22);
             this.label1.TabIndex = 24;
@@ -207,7 +203,7 @@ namespace SmartInvestment
             // 
             this.lbl_Last_Name.AutoSize = true;
             this.lbl_Last_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Last_Name.Location = new System.Drawing.Point(172, 18);
+            this.lbl_Last_Name.Location = new System.Drawing.Point(321, 17);
             this.lbl_Last_Name.Name = "lbl_Last_Name";
             this.lbl_Last_Name.Size = new System.Drawing.Size(105, 22);
             this.lbl_Last_Name.TabIndex = 23;
@@ -217,7 +213,7 @@ namespace SmartInvestment
             // 
             this.lbl_FirstName.AutoSize = true;
             this.lbl_FirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_FirstName.Location = new System.Drawing.Point(13, 83);
+            this.lbl_FirstName.Location = new System.Drawing.Point(156, 17);
             this.lbl_FirstName.Name = "lbl_FirstName";
             this.lbl_FirstName.Size = new System.Drawing.Size(107, 22);
             this.lbl_FirstName.TabIndex = 22;
@@ -225,14 +221,14 @@ namespace SmartInvestment
             // 
             // txtBx_LN
             // 
-            this.txtBx_LN.Location = new System.Drawing.Point(176, 41);
+            this.txtBx_LN.Location = new System.Drawing.Point(325, 42);
             this.txtBx_LN.Name = "txtBx_LN";
             this.txtBx_LN.Size = new System.Drawing.Size(97, 26);
             this.txtBx_LN.TabIndex = 21;
             // 
             // txtBx_FN
             // 
-            this.txtBx_FN.Location = new System.Drawing.Point(17, 108);
+            this.txtBx_FN.Location = new System.Drawing.Point(160, 42);
             this.txtBx_FN.Name = "txtBx_FN";
             this.txtBx_FN.Size = new System.Drawing.Size(97, 26);
             this.txtBx_FN.TabIndex = 20;
@@ -260,6 +256,17 @@ namespace SmartInvestment
             this.dataGrid_clients.RowTemplate.Height = 28;
             this.dataGrid_clients.Size = new System.Drawing.Size(1321, 446);
             this.dataGrid_clients.TabIndex = 12;
+            this.dataGrid_clients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_clients_CellClick);
+            this.dataGrid_clients.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_clients_RowEnter);
+            // 
+            // comboBox_gender
+            // 
+            this.comboBox_gender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_gender.FormattingEnabled = true;
+            this.comboBox_gender.Location = new System.Drawing.Point(17, 108);
+            this.comboBox_gender.Name = "comboBox_gender";
+            this.comboBox_gender.Size = new System.Drawing.Size(95, 28);
+            this.comboBox_gender.TabIndex = 37;
             // 
             // FrmClient
             // 
@@ -289,7 +296,6 @@ namespace SmartInvestment
         private System.Windows.Forms.Button bttnDelete;
         private System.Windows.Forms.Button bttnSave;
         private System.Windows.Forms.Button bttn_Update;
-        private System.Windows.Forms.ComboBox comboBox_gender;
         private System.Windows.Forms.Label lbl_dmat;
         private System.Windows.Forms.TextBox txtBx_Dmat_Num;
         private System.Windows.Forms.Label lbl_Mobile_no;
@@ -302,5 +308,6 @@ namespace SmartInvestment
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGrid_clients;
         private System.Windows.Forms.Button btn_add_client_inv_preference;
+        private System.Windows.Forms.ComboBox comboBox_gender;
     }
 }

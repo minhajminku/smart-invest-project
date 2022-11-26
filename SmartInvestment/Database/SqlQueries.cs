@@ -163,5 +163,11 @@ namespace SmartInvestment.Database
         {
             return String.Format("DELETE FROM dbo.Investment_Category WHERE Investment_Category_Id = {0}", investmentCategoryId);
         }
+        public static string GetClientPreferenceDropDownData(int preferenceTypeID,int? clientId = null)
+        {
+            condition = clientId != null ? ", @Client_Id = " + clientId : " ";
+
+            return String.Format("EXECUTE dbo.GetClientPreferenceDropDownData @Preference_Type_Id={0} {1}", preferenceTypeID,condition);
+        }
     }
 }

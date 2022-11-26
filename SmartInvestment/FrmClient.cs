@@ -198,8 +198,14 @@ namespace SmartInvestment
 
         private void btn_add_client_inv_preference_Click(object sender, EventArgs e)
         {
-            frm_client_preference frm = new frm_client_preference();
-            frm.Show();
+            if (!string.IsNullOrWhiteSpace(txtBx_ClientId.Text)){
+                frm_client_preference frm = new frm_client_preference(txtBx_ClientId.Text);
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a client.");
+            }
         }
 
         private void bttnDelete_Click(object sender, EventArgs e)

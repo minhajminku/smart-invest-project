@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="Database\DataAccess.cs" />
     <Compile Include="Database\SqlQueries.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="FrmClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,7 +90,9 @@
       <DependentUpon>frm_MDI_Container.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\ClientInvestmentPreference.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\DropDownSelectList.cs" />
     <Compile Include="Models\InvestmentIdea.cs" />
     <Compile Include="Models\InvestmentCategory.cs" />
     <Compile Include="Models\Risk.cs" />

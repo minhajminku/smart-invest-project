@@ -14,6 +14,7 @@ namespace SmartInvestment.Models
     {
         public int Sector_Id { get; set; }
         public string Sector_Name { get; set; }
+        public bool IsSelected { get; set; }
 
     }
 }

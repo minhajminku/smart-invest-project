@@ -15,5 +15,6 @@ namespace SmartInvestment.Models
     {
         public int Country_Id { get; set; }
         public string Country_Name { get; set; }
+        public bool IsSelected { get; set; }
     }
 }

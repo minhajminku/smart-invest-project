@@ -15,5 +15,6 @@ namespace SmartInvestment.Models
     {
         public int Risk_Id { get; set; }
         public string Risk_Name { get; set; }
+        public bool IsSelected { get; set; }
     }
 }

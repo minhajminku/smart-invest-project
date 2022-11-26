@@ -169,5 +169,24 @@ namespace SmartInvestment.Database
 
             return String.Format("EXECUTE dbo.GetClientPreferenceDropDownData @Preference_Type_Id={0} {1}", preferenceTypeID,condition);
         }
+        public static string DeleteAllClientPreference(int clientId)
+        {
+            return String.Format("DELETE FROM dbo.Client_Prferences WHERE Client_Id ={0}  ", clientId);
+        }
+        public static string SaveClientPreference(int clientId,int preferenceTypeId,int preference_Type_Sub_Id,string userName)
+        {
+            return String.Format("INSERT INTO dbo.Client_Prferences" +
+                                "(" +
+                                    "Client_Id," +
+                                    "Preference_Type_Id," +
+                                    "Preference_Type_Sub_Id," +
+                                    "Created_By"+
+                                ") " +
+                                "VALUES" +
+                                "(" +
+                                "{0},{1},{2},'{3}'" +
+                                ")", clientId, preferenceTypeId, preference_Type_Sub_Id, userName
+                                );
+        }
     }
 }

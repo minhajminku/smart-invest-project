@@ -31,12 +31,13 @@ namespace SmartInvestment
         {
             this.pnl_left = new System.Windows.Forms.Panel();
             this.panel_Top = new System.Windows.Forms.Panel();
-            this.panel_Footer = new System.Windows.Forms.Panel();
             this.lbl_Title = new System.Windows.Forms.Label();
+            this.panel_Footer = new System.Windows.Forms.Panel();
             this.panel_Headerbtn_Container = new System.Windows.Forms.Panel();
-            this.bttn_Client = new System.Windows.Forms.Button();
-            this.bttn_investmentCategories = new System.Windows.Forms.Button();
             this.bttn_Ideas = new System.Windows.Forms.Button();
+            this.bttn_investmentCategories = new System.Windows.Forms.Button();
+            this.bttn_Client = new System.Windows.Forms.Button();
+            this.bttnInvestment = new System.Windows.Forms.Button();
             this.panel_Top.SuspendLayout();
             this.panel_Headerbtn_Container.SuspendLayout();
             this.SuspendLayout();
@@ -61,15 +62,6 @@ namespace SmartInvestment
             this.panel_Top.Size = new System.Drawing.Size(1196, 44);
             this.panel_Top.TabIndex = 2;
             // 
-            // panel_Footer
-            // 
-            this.panel_Footer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Footer.Location = new System.Drawing.Point(103, 484);
-            this.panel_Footer.Name = "panel_Footer";
-            this.panel_Footer.Size = new System.Drawing.Size(1196, 47);
-            this.panel_Footer.TabIndex = 3;
-            // 
             // lbl_Title
             // 
             this.lbl_Title.AutoSize = true;
@@ -80,10 +72,20 @@ namespace SmartInvestment
             this.lbl_Title.TabIndex = 0;
             this.lbl_Title.Text = "Investment Solutions";
             // 
+            // panel_Footer
+            // 
+            this.panel_Footer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_Footer.Location = new System.Drawing.Point(103, 484);
+            this.panel_Footer.Name = "panel_Footer";
+            this.panel_Footer.Size = new System.Drawing.Size(1196, 47);
+            this.panel_Footer.TabIndex = 3;
+            // 
             // panel_Headerbtn_Container
             // 
             this.panel_Headerbtn_Container.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_Headerbtn_Container.Controls.Add(this.bttnInvestment);
             this.panel_Headerbtn_Container.Controls.Add(this.bttn_Ideas);
             this.panel_Headerbtn_Container.Controls.Add(this.bttn_investmentCategories);
             this.panel_Headerbtn_Container.Controls.Add(this.bttn_Client);
@@ -92,17 +94,17 @@ namespace SmartInvestment
             this.panel_Headerbtn_Container.Size = new System.Drawing.Size(1196, 66);
             this.panel_Headerbtn_Container.TabIndex = 4;
             // 
-            // bttn_Client
+            // bttn_Ideas
             // 
-            this.bttn_Client.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.bttn_Ideas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.bttn_Client.Location = new System.Drawing.Point(3, 3);
-            this.bttn_Client.Name = "bttn_Client";
-            this.bttn_Client.Size = new System.Drawing.Size(113, 57);
-            this.bttn_Client.TabIndex = 0;
-            this.bttn_Client.Text = "Clients";
-            this.bttn_Client.UseVisualStyleBackColor = true;
-            this.bttn_Client.Click += new System.EventHandler(this.bttn_Client_Click);
+            this.bttn_Ideas.Location = new System.Drawing.Point(241, 3);
+            this.bttn_Ideas.Name = "bttn_Ideas";
+            this.bttn_Ideas.Size = new System.Drawing.Size(113, 57);
+            this.bttn_Ideas.TabIndex = 2;
+            this.bttn_Ideas.Text = "Ideas";
+            this.bttn_Ideas.UseVisualStyleBackColor = true;
+            this.bttn_Ideas.Click += new System.EventHandler(this.bttn_Ideas_Click);
             // 
             // bttn_investmentCategories
             // 
@@ -116,17 +118,29 @@ namespace SmartInvestment
             this.bttn_investmentCategories.UseVisualStyleBackColor = true;
             this.bttn_investmentCategories.Click += new System.EventHandler(this.bttn_investmentCategories_Click);
             // 
-            // bttn_Ideas
+            // bttn_Client
             // 
-            this.bttn_Ideas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.bttn_Client.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.bttn_Ideas.Location = new System.Drawing.Point(241, 3);
-            this.bttn_Ideas.Name = "bttn_Ideas";
-            this.bttn_Ideas.Size = new System.Drawing.Size(113, 57);
-            this.bttn_Ideas.TabIndex = 2;
-            this.bttn_Ideas.Text = "Ideas";
-            this.bttn_Ideas.UseVisualStyleBackColor = true;
-            this.bttn_Ideas.Click += new System.EventHandler(this.bttn_Ideas_Click);
+            this.bttn_Client.Location = new System.Drawing.Point(3, 3);
+            this.bttn_Client.Name = "bttn_Client";
+            this.bttn_Client.Size = new System.Drawing.Size(113, 57);
+            this.bttn_Client.TabIndex = 0;
+            this.bttn_Client.Text = "Clients";
+            this.bttn_Client.UseVisualStyleBackColor = true;
+            this.bttn_Client.Click += new System.EventHandler(this.bttn_Client_Click);
+            // 
+            // bttnInvestment
+            // 
+            this.bttnInvestment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.bttnInvestment.Location = new System.Drawing.Point(360, 3);
+            this.bttnInvestment.Name = "bttnInvestment";
+            this.bttnInvestment.Size = new System.Drawing.Size(113, 57);
+            this.bttnInvestment.TabIndex = 3;
+            this.bttnInvestment.Text = "Investment";
+            this.bttnInvestment.UseVisualStyleBackColor = true;
+            this.bttnInvestment.Click += new System.EventHandler(this.bttnInvestment_Click);
             // 
             // frm_MDI_Container
             // 
@@ -160,5 +174,6 @@ namespace SmartInvestment
         private System.Windows.Forms.Button bttn_Client;
         private System.Windows.Forms.Button bttn_investmentCategories;
         private System.Windows.Forms.Button bttn_Ideas;
+        private System.Windows.Forms.Button bttnInvestment;
     }
 }

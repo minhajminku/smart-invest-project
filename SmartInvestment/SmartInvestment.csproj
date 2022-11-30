@@ -83,6 +83,12 @@
     <Compile Include="frm_client_preference.Designer.cs">
       <DependentUpon>frm_client_preference.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Investment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Investment.Designer.cs">
+      <DependentUpon>frm_Investment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_MDI_Container.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_client_preference.resx">
       <DependentUpon>frm_client_preference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Investment.resx">
+      <DependentUpon>frm_Investment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_MDI_Container.resx">
       <DependentUpon>frm_MDI_Container.cs</DependentUpon>

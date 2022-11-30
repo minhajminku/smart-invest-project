@@ -34,6 +34,7 @@ namespace SmartInvestment
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_login = new System.Windows.Forms.Button();
+            this.label_wrong_cred = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtBx_User_Name
@@ -78,11 +79,23 @@ namespace SmartInvestment
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
+            // label_wrong_cred
+            // 
+            this.label_wrong_cred.AutoSize = true;
+            this.label_wrong_cred.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label_wrong_cred.Location = new System.Drawing.Point(336, 284);
+            this.label_wrong_cred.Name = "label_wrong_cred";
+            this.label_wrong_cred.Size = new System.Drawing.Size(137, 20);
+            this.label_wrong_cred.TabIndex = 6;
+            this.label_wrong_cred.Text = "Wrong credentials";
+            this.label_wrong_cred.Visible = false;
+            // 
             // AdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label_wrong_cred);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -102,6 +115,7 @@ namespace SmartInvestment
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_login;
+        private System.Windows.Forms.Label label_wrong_cred;
     }
 }
 

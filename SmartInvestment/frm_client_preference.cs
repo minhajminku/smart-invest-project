@@ -149,9 +149,16 @@ namespace SmartInvestment
         }
         private void bttnSave_Click(object sender, EventArgs e)
         {
-            createClientPreferenceList();
-            saveClientPreferenceList();
-
+            try
+            {
+                createClientPreferenceList();
+                saveClientPreferenceList();
+                MessageBox.Show("Preference saved Succesfully. ");
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong. ");
+            }
         }
         private void createClientPreferenceList()
         {

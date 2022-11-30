@@ -21,13 +21,18 @@ namespace SmartInvestment
         private void btn_login_Click(object sender, EventArgs e)
         {
             DataSet dtDs = oAccess.getDataSet(SqlQueries.GetUserByName_Password(this.txtBx_User_Name.Text,this.txtBx_Password.Text), false);
-            if(dtDs.Tables.Count>0)
+            if (dtDs.Tables[0].Rows.Count > 0 )
             {
                 frm_MDI_Container frm = new frm_MDI_Container();
                 frm.ShowDialog();
-               
+                label_wrong_cred.Visible = false;
+                Close();
+
             }
-            Close();
+            else
+                label_wrong_cred.Visible = true;
+
+           
         }
     }
 }

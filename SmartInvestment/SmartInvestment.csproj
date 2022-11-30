@@ -77,6 +77,12 @@
     <Compile Include="FrmInvestmentIdea.Designer.cs">
       <DependentUpon>FrmInvestmentIdea.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_AddCompanyToIdea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_AddCompanyToIdea.Designer.cs">
+      <DependentUpon>frm_AddCompanyToIdea.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_client_preference.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,8 +103,10 @@
     </Compile>
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientInvestmentPreference.cs" />
+    <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\DropDownSelectList.cs" />
+    <Compile Include="Models\IdeaCompany.cs" />
     <Compile Include="Models\InvestmentIdea.cs" />
     <Compile Include="Models\InvestmentCategory.cs" />
     <Compile Include="Models\Risk.cs" />
@@ -116,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInvestmentIdea.resx">
       <DependentUpon>FrmInvestmentIdea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_AddCompanyToIdea.resx">
+      <DependentUpon>frm_AddCompanyToIdea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_client_preference.resx">
       <DependentUpon>frm_client_preference.cs</DependentUpon>

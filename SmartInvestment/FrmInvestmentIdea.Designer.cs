@@ -42,6 +42,7 @@ namespace SmartInvestment
             this.bttnAddNew = new System.Windows.Forms.Button();
             this.bttnSave = new System.Windows.Forms.Button();
             this.bttnDelete = new System.Windows.Forms.Button();
+            this.bttnAddStocksToIdea = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,11 +177,22 @@ namespace SmartInvestment
             this.bttnDelete.Visible = false;
             this.bttnDelete.Click += new System.EventHandler(this.bttnDelete_Click);
             // 
+            // bttnAddStocksToIdea
+            // 
+            this.bttnAddStocksToIdea.Location = new System.Drawing.Point(673, 390);
+            this.bttnAddStocksToIdea.Name = "bttnAddStocksToIdea";
+            this.bttnAddStocksToIdea.Size = new System.Drawing.Size(113, 82);
+            this.bttnAddStocksToIdea.TabIndex = 14;
+            this.bttnAddStocksToIdea.Text = "Add stocks to Idea";
+            this.bttnAddStocksToIdea.UseVisualStyleBackColor = true;
+            this.bttnAddStocksToIdea.Click += new System.EventHandler(this.bttnAddStocksToIdea_Click);
+            // 
             // FrmInvestmentIdea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 521);
+            this.Controls.Add(this.bttnAddStocksToIdea);
             this.Controls.Add(this.bttnDelete);
             this.Controls.Add(this.bttnSave);
             this.Controls.Add(this.bttnAddNew);
@@ -219,5 +231,6 @@ namespace SmartInvestment
         private System.Windows.Forms.Button bttnAddNew;
         private System.Windows.Forms.Button bttnSave;
         private System.Windows.Forms.Button bttnDelete;
+        private System.Windows.Forms.Button bttnAddStocksToIdea;
     }
 }

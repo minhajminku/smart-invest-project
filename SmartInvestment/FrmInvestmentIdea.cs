@@ -228,5 +228,16 @@ namespace SmartInvestment
                 MessageBox.Show("Error:" + ex.Message);
             }
         }
+
+        private void bttnAddStocksToIdea_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtBx_IdeaId.Text))
+            {
+                frm_AddCompanyToIdea frm = new frm_AddCompanyToIdea(Convert.ToInt32(txtBx_IdeaId.Text));
+                frm.Show();
+            }
+            else
+                MessageBox.Show("Choose a valid Idea");
+        }
     }
 }

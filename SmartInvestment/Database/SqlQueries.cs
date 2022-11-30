@@ -188,5 +188,43 @@ namespace SmartInvestment.Database
                                 ")", clientId, preferenceTypeId, preference_Type_Sub_Id, userName
                                 );
         }
+        public static string GetCompanyList(int? clientId = null,int? ideaId = null)
+        {
+            condition = clientId != null ? " WHERE Client_Id = " + clientId : " ";
+            string joinCondition = ideaId != null ? "AND IIC.IdeaId = " + ideaId?.ToString() : "";
+
+            return String.Format("SELECT CM.Company_Id,CM.Company_Name,CM.Stock_Value,CM.Previous_Month_Stock_Value,R.Risk_Name," +
+                                " IC.Investment_Category_Name, S.Sector_Name, C.Country_Name,IIF(IIC.Investment_Idea_Company_Id IS NULL,0,1) AS IsSelected" +
+                                " FROM dbo.Company_Master CM" +
+                                " LEFT JOIN dbo.Investment_Idea_Company IIC ON IIC.CompanyId = CM.Company_Id " +
+                                    joinCondition+
+                                " LEFT JOIN dbo.Risk R ON R.Risk_Id = CM.RiskId" +
+                                " LEFT JOIN dbo.Investment_Category IC ON IC.Investment_Category_Id = CM.CategoryId" +
+                                " LEFT JOIN dbo.Sectors S ON S.Sector_Id = CM.SectorId" +
+                                " LEFT JOIN dbo.Country C ON C.Country_Id = CM.CountryId {0}", condition);
+        }
+        public static string AddCompaniesToIdea(IdeaCompany companies,string userName = "ranjith")
+        {
+            string result = "";
+            foreach (var companyId in companies.CompanyIds) {
+                result+= String.Format("INSERT INTO dbo.Investment_Idea_Company" +
+                                    " (" +
+                                    " IdeaId, CompanyId, CreatedBy" +
+                                    " ) " +
+                                    " VALUES" +
+                                    " (" +
+                                    " {0},{1},'{2}'" +
+                                    " );",companies.IdeaId, companyId, userName);
+            }
+            return result;
+        }
+        public static string DeleteCompaniesFromIdea(int IdeaId)
+        {
+            condition = " WHERE IdeaId = " + IdeaId ;
+            
+               return String.Format("DELETE FROM dbo.Investment_Idea_Company " +
+                                    " {0}", condition);
+            
+        }
     }
 }

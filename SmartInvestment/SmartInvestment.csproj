@@ -71,6 +71,12 @@
     <Compile Include="FrmInvestmentCategory.Designer.cs">
       <DependentUpon>FrmInvestmentCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompany.Designer.cs">
+      <DependentUpon>FrmCompany.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmInvestmentIdea.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInvestmentCategory.resx">
       <DependentUpon>FrmInvestmentCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompany.resx">
+      <DependentUpon>FrmCompany.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInvestmentIdea.resx">
       <DependentUpon>FrmInvestmentIdea.cs</DependentUpon>

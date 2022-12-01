@@ -43,5 +43,12 @@ namespace SmartInvestment
             frm_Investment frm = new frm_Investment();
             frm.Show();
         }
+
+        private void bttnCompany_Click(object sender, EventArgs e)
+        {
+            FrmCompany frm = new FrmCompany();
+            frm.MdiParent = frm_MDI_Container.ActiveForm;
+            frm.Show();
+        }
     }
 }

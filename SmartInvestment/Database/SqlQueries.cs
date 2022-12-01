@@ -21,11 +21,35 @@ namespace SmartInvestment.Database
            
             return String.Format("SELECT Investment_Category_Id,Investment_Category_Name,Created_Date FROM dbo.Investment_Category {0}", condition );
         }
+        public static string GetRisks(int? riskId = null)
+        {
+            condition = riskId != null ? " Risk_Id = " + riskId : " ";
+
+            return String.Format("SELECT Risk_Id,Risk_Name,Created_Date FROM dbo.Risk {0}", condition);
+        }
+        public static string GetCountries(int? countryId = null)
+        {
+            condition = countryId != null ? " Country_Id = " + countryId : " ";
+
+            return String.Format("SELECT Country_Id,Country_Name,Created_Date FROM dbo.Country {0}", condition);
+        }
+        public static string GetSectors(int? sectorId = null)
+        {
+            condition = sectorId != null ? " Sector_Id = " + sectorId : " ";
+
+            return String.Format("SELECT Sector_Id,Sector_Name,Created_Date FROM dbo.Sectors {0}", condition);
+        }
         public static string GetInvestmentIdeas(int? investmentIdeaId = null)
         {
             condition = investmentIdeaId != null ? " WHERE Investment_Idea_Id = " + investmentIdeaId : " ";
 
             return String.Format("SELECT Investment_Idea_Id,Investment_Idea_Name,Investment_Category_Id,Created_Date FROM dbo.Investment_Idea {0}", condition);
+        }
+        public static string GetCompanies(int? companyId = null)
+        {
+            condition = companyId != null ? " WHERE Company_Id = " + companyId : " ";
+
+            return String.Format("SELECT Company_Id,Company_Name,Stock_Value,Previous_Month_Stock_Value,CategoryId,SectorId,CountryId,RiskId FROM dbo.Company_Master {0}", condition);
         }
         public static string GetClients(int? clientId = null)
         {
@@ -67,6 +91,60 @@ namespace SmartInvestment.Database
                             idea.Idea_Name,
                             idea.CategoryID,
                             "username");
+            }
+        }
+        public static string AddOrUpdateCompany(Company company)
+        {
+            condition = company.Company_Id != 0 ? " WHERE Company_Id = " + company.Company_Id : " ";
+            if (company.Company_Id != 0)
+            {
+                return String.Format("UPDATE dbo.Company_Master " +
+                                    " SET Company_Name = '{0}', " +
+                                    " Stock_Value = '{1}', " +
+                                    " Previous_Month_Stock_Value = '{2}', " +
+                                    " CategoryId = {3}, " +
+                                    " SectorId = {4}, " +
+                                    " CountryId = {5}, " +
+                                    " RiskId = {6}, " +
+                                    " {7}",
+                                    company.Company_Name,
+                                    company.Current_Stock_Value,
+                                    company.Prev_Month_Stock_Value,
+                                    company.CategoryId,
+                                    company.SectorId,
+                                    company.CountryId,
+                                    company.RiskId,
+                                    condition);
+            }
+            else
+            {
+                return String.Format("INSERT INTO dbo.Company_Master" +
+                        "(" +
+                            " Company_Name," +
+                            " Stock_Value," +
+                            " Previous_Month_Stock_Value," +
+                            " CategoryId," +
+                            " SectorId," +
+                            " CountryId," +
+                            " RiskId" +
+                        " )" +
+                        " VALUES" +
+                        "( '{0}'," +
+                          " '{1}'," +
+                          " '{2}'," +
+                           "{3}," +
+                           "{4}," +
+                           "{5}," +
+                           "{6}" +
+                            ")",
+                            company.Company_Name,
+                                    company.Current_Stock_Value,
+                                    company.Prev_Month_Stock_Value,
+                                    company.CategoryId,
+                                    company.SectorId,
+                                    company.CountryId,
+                                    company.RiskId
+                                    );
             }
         }
         public static string AddOrUpdateclient(Client client)

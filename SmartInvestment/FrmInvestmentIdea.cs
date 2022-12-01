@@ -16,9 +16,10 @@ namespace SmartInvestment
     {
         public List<InvestmentIdea> InvestmentIdeas { get; set; }
         public List<InvestmentCategory> InvestmentCategorys { get; set; }
-        private readonly DataAceess oAccess = new DataAceess();
+        private readonly DataAceess oAccess;
         public FrmInvestmentIdea()
         {
+            oAccess = new DataAceess();
             InvestmentIdeas = GetInvestmentIdeas();
             InvestmentCategorys = GetInvestmentCategories();
             InitializeComponent();

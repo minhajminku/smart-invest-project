@@ -15,11 +15,11 @@ namespace SmartInvestment
     public partial class frm_AddCompanyToIdea : Form
     {
         public List<Company> CompanyList { get; set; }
-        private readonly DataAceess oAccess = new DataAceess();
+        private readonly DataAceess oAccess;
         private int IdeaId { get; set; }
         public frm_AddCompanyToIdea(int IdeaId)
         {
-
+            oAccess = new DataAceess();
             this.IdeaId = IdeaId;
             InitializeComponent();
             loadCompanyList();

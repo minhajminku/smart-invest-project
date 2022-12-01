@@ -15,9 +15,10 @@ namespace SmartInvestment
     public partial class FrmInvestmentCategory : Form
     {
         public List<InvestmentCategory> InvestmentCategorys { get; set; }
-        private readonly DataAceess oAccess = new DataAceess();
+        private readonly DataAceess oAccess;
         public FrmInvestmentCategory()
         {
+            oAccess = new DataAceess();
             InvestmentCategorys = GetInvestmentCategories();
             InitializeComponent();
         }
@@ -25,7 +26,6 @@ namespace SmartInvestment
         private List<InvestmentCategory> GetInvestmentCategories()
         {
             var list = new List<InvestmentCategory>();
-            DataAceess oAccess = new DataAceess();//sfirm_is is db name
             DataSet dtDs = oAccess.getDataSet(SqlQueries.GetInvestmentCategories(), false);
             if (dtDs.Tables.Count > 0)
             {

@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lblSearchBy = new System.Windows.Forms.Label();
             this.bttnSearch = new System.Windows.Forms.Button();
-            this.lblClient = new System.Windows.Forms.Label();
-            this.cmbxClient = new System.Windows.Forms.ComboBox();
-            this.cmbxIdea = new System.Windows.Forms.ComboBox();
-            this.lblIdea = new System.Windows.Forms.Label();
             this.panelBody = new System.Windows.Forms.Panel();
             this.datagrdInvestmentData = new System.Windows.Forms.DataGridView();
+            this.cmbxSearchBy = new System.Windows.Forms.ComboBox();
+            this.cmbxSearchBySub = new System.Windows.Forms.ComboBox();
             this.pnlHeader.SuspendLayout();
             this.panelBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrdInvestmentData)).BeginInit();
@@ -43,64 +42,40 @@
             // 
             // pnlHeader
             // 
-            this.pnlHeader.Controls.Add(this.cmbxIdea);
-            this.pnlHeader.Controls.Add(this.lblIdea);
-            this.pnlHeader.Controls.Add(this.cmbxClient);
-            this.pnlHeader.Controls.Add(this.lblClient);
+            this.pnlHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlHeader.Controls.Add(this.cmbxSearchBySub);
+            this.pnlHeader.Controls.Add(this.cmbxSearchBy);
+            this.pnlHeader.Controls.Add(this.lblSearchBy);
             this.pnlHeader.Controls.Add(this.bttnSearch);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(1111, 89);
             this.pnlHeader.TabIndex = 0;
             // 
+            // lblSearchBy
+            // 
+            this.lblSearchBy.AutoSize = true;
+            this.lblSearchBy.Location = new System.Drawing.Point(12, 10);
+            this.lblSearchBy.Name = "lblSearchBy";
+            this.lblSearchBy.Size = new System.Drawing.Size(82, 20);
+            this.lblSearchBy.TabIndex = 2;
+            this.lblSearchBy.Text = "Search By";
+            // 
             // bttnSearch
             // 
-            this.bttnSearch.Location = new System.Drawing.Point(628, 28);
+            this.bttnSearch.Location = new System.Drawing.Point(462, 36);
             this.bttnSearch.Name = "bttnSearch";
-            this.bttnSearch.Size = new System.Drawing.Size(118, 36);
+            this.bttnSearch.Size = new System.Drawing.Size(125, 35);
             this.bttnSearch.TabIndex = 0;
             this.bttnSearch.Text = "Search";
             this.bttnSearch.UseVisualStyleBackColor = true;
             this.bttnSearch.Click += new System.EventHandler(this.bttnSearch_Click);
             // 
-            // lblClient
-            // 
-            this.lblClient.AutoSize = true;
-            this.lblClient.Location = new System.Drawing.Point(12, 10);
-            this.lblClient.Name = "lblClient";
-            this.lblClient.Size = new System.Drawing.Size(49, 20);
-            this.lblClient.TabIndex = 2;
-            this.lblClient.Text = "Client";
-            // 
-            // cmbxClient
-            // 
-            this.cmbxClient.FormattingEnabled = true;
-            this.cmbxClient.Location = new System.Drawing.Point(16, 33);
-            this.cmbxClient.Name = "cmbxClient";
-            this.cmbxClient.Size = new System.Drawing.Size(284, 28);
-            this.cmbxClient.TabIndex = 3;
-            // 
-            // cmbxIdea
-            // 
-            this.cmbxIdea.FormattingEnabled = true;
-            this.cmbxIdea.Location = new System.Drawing.Point(325, 33);
-            this.cmbxIdea.Name = "cmbxIdea";
-            this.cmbxIdea.Size = new System.Drawing.Size(284, 28);
-            this.cmbxIdea.TabIndex = 5;
-            // 
-            // lblIdea
-            // 
-            this.lblIdea.AutoSize = true;
-            this.lblIdea.Location = new System.Drawing.Point(321, 10);
-            this.lblIdea.Name = "lblIdea";
-            this.lblIdea.Size = new System.Drawing.Size(41, 20);
-            this.lblIdea.TabIndex = 4;
-            this.lblIdea.Text = "Idea";
-            // 
             // panelBody
             // 
-            this.panelBody.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelBody.Controls.Add(this.datagrdInvestmentData);
             this.panelBody.Location = new System.Drawing.Point(1, 90);
@@ -111,12 +86,33 @@
             // datagrdInvestmentData
             // 
             this.datagrdInvestmentData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagrdInvestmentData.Location = new System.Drawing.Point(3, 3);
+            this.datagrdInvestmentData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datagrdInvestmentData.Location = new System.Drawing.Point(0, 0);
             this.datagrdInvestmentData.Name = "datagrdInvestmentData";
             this.datagrdInvestmentData.RowHeadersWidth = 62;
             this.datagrdInvestmentData.RowTemplate.Height = 28;
-            this.datagrdInvestmentData.Size = new System.Drawing.Size(1104, 500);
+            this.datagrdInvestmentData.Size = new System.Drawing.Size(1110, 506);
             this.datagrdInvestmentData.TabIndex = 0;
+            // 
+            // cmbxSearchBy
+            // 
+            this.cmbxSearchBy.FormattingEnabled = true;
+            this.cmbxSearchBy.Items.AddRange(new object[] {
+            "Idea",
+            "Client"});
+            this.cmbxSearchBy.Location = new System.Drawing.Point(16, 36);
+            this.cmbxSearchBy.Name = "cmbxSearchBy";
+            this.cmbxSearchBy.Size = new System.Drawing.Size(144, 28);
+            this.cmbxSearchBy.TabIndex = 3;
+            this.cmbxSearchBy.SelectedIndexChanged += new System.EventHandler(this.cmbxSearchBy_SelectedIndexChanged);
+            // 
+            // cmbxSearchBySub
+            // 
+            this.cmbxSearchBySub.FormattingEnabled = true;
+            this.cmbxSearchBySub.Location = new System.Drawing.Point(167, 36);
+            this.cmbxSearchBySub.Name = "cmbxSearchBySub";
+            this.cmbxSearchBySub.Size = new System.Drawing.Size(289, 28);
+            this.cmbxSearchBySub.TabIndex = 4;
             // 
             // frm_Investment
             // 
@@ -139,11 +135,10 @@
 
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Button bttnSearch;
-        private System.Windows.Forms.ComboBox cmbxClient;
-        private System.Windows.Forms.Label lblClient;
-        private System.Windows.Forms.ComboBox cmbxIdea;
-        private System.Windows.Forms.Label lblIdea;
+        private System.Windows.Forms.Label lblSearchBy;
         private System.Windows.Forms.Panel panelBody;
         private System.Windows.Forms.DataGridView datagrdInvestmentData;
+        private System.Windows.Forms.ComboBox cmbxSearchBy;
+        private System.Windows.Forms.ComboBox cmbxSearchBySub;
     }
 }

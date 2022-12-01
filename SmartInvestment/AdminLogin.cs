@@ -13,9 +13,10 @@ namespace SmartInvestment
 {
     public partial class AdminLogin : Form
     {
-        private readonly DataAceess oAccess = new DataAceess();
+        private readonly DataAceess oAccess;
         public AdminLogin()
         {
+            oAccess = new DataAceess();
             InitializeComponent();
         }
         private void btn_login_Click(object sender, EventArgs e)

@@ -281,6 +281,41 @@ namespace SmartInvestment.Database
                                 " LEFT JOIN dbo.Sectors S ON S.Sector_Id = CM.SectorId" +
                                 " LEFT JOIN dbo.Country C ON C.Country_Id = CM.CountryId {0}", condition);
         }
+        public static string GetCompanyListSearchByClientId(int clientId)
+        {
+            condition = string.Format(" WHERE (CPC.Client_Id = {0} OR CPS.Client_Id = {1} OR CPR.Client_Id = {2} OR CPCN.Client_Id= {3})", clientId, clientId, clientId, clientId);
+            
+
+            return String.Format(" SELECT CM.Company_Id,CM.Company_Name,CM.Stock_Value,CM.Previous_Month_Stock_Value, " +
+                                " IC.Investment_Category_Name,S.Sector_Name,R.Risk_Name,C.Country_Name" +
+                                " FROM dbo.Company_Master CM" +
+                                " LEFT JOIN dbo.Client_Prferences CPC ON CPC.Preference_Type_Id = 1"+ //Client Preference for Category
+                                " AND CPC.Preference_Type_Sub_Id = CM.CategoryId"+
+                                " LEFT JOIN dbo.Client_Prferences CPS ON CPS.Preference_Type_Id = 2" + //Client Preference for sector
+                                " AND CPS.Preference_Type_Sub_Id = CM.SectorId" +
+                                " LEFT JOIN dbo.Client_Prferences CPR ON CPR.Preference_Type_Id = 3" + //Client Preference for risk
+                                " AND CPR.Preference_Type_Sub_Id = CM.RiskId" +
+                                " LEFT JOIN dbo.Client_Prferences CPCN ON CPCN.Preference_Type_Id = 4" + //Client Preference for country
+                                " AND CPCN.Preference_Type_Sub_Id = CM.CountryId " +
+                                " LEFT JOIN dbo.Investment_Category IC ON IC.Investment_Category_Id = CM.CategoryId"+
+                                " LEFT JOIN dbo.Sectors S ON S.Sector_Id = CM.SectorId"+
+                                " LEFT JOIN dbo.Risk R ON R.Risk_Id = CM.RiskId"+
+                                " LEFT JOIN dbo.Country C ON C.Country_Id = CM.CountryId" +
+                                " {0}", condition);
+        }
+        public static string GetCompanyListSearchByIdeaId(int ideaId)
+        {
+            condition = string.Format(" WHERE IIC.IdeaId={0}", ideaId);
+            return String.Format(" SELECT CM.Company_Id,CM.Company_Name,CM.Stock_Value,CM.Previous_Month_Stock_Value," +
+                                " IC.Investment_Category_Name,S.Sector_Name,R.Risk_Name,C.Country_Name" +
+                                " FROM dbo.Company_Master CM"+
+                                " INNER JOIN dbo.Investment_Idea_Company IIC ON IIC.CompanyId = CM.Company_Id " +
+                                " LEFT JOIN dbo.Investment_Category IC ON IC.Investment_Category_Id = CM.CategoryId"+
+                                " LEFT JOIN dbo.Sectors S ON S.Sector_Id = CM.SectorId"+
+                                " LEFT JOIN dbo.Risk R ON R.Risk_Id = CM.RiskId"+
+                                " LEFT JOIN dbo.Country C ON C.Country_Id = CM.CountryId" +
+                                " {0}", condition);
+        }
         public static string AddCompaniesToIdea(IdeaCompany companies,string userName = "ranjith")
         {
             string result = "";

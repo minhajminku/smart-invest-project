@@ -82,8 +82,8 @@ namespace SmartInvestment
             // label_wrong_cred
             // 
             this.label_wrong_cred.AutoSize = true;
-            this.label_wrong_cred.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label_wrong_cred.Location = new System.Drawing.Point(336, 284);
+            this.label_wrong_cred.ForeColor = System.Drawing.Color.Red;
+            this.label_wrong_cred.Location = new System.Drawing.Point(310, 284);
             this.label_wrong_cred.Name = "label_wrong_cred";
             this.label_wrong_cred.Size = new System.Drawing.Size(137, 20);
             this.label_wrong_cred.TabIndex = 6;

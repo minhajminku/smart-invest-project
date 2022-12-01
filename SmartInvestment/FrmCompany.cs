@@ -123,9 +123,13 @@ namespace SmartInvestment
                     company.Company_Name = dtDs.Tables[0].Rows[i]["Company_Name"].ToString();
                     company.Current_Stock_Value = Convert.ToDecimal(dtDs.Tables[0].Rows[i]["Stock_Value"]);
                     company.Prev_Month_Stock_Value = Convert.ToDecimal(dtDs.Tables[0].Rows[i]["Previous_Month_Stock_Value"]);
+                    company.SectorName = dtDs.Tables[0].Rows[i]["Sector_Name"].ToString();
+                    company.RiskName = dtDs.Tables[0].Rows[i]["Risk_Name"].ToString();
+                    company.CountryName = dtDs.Tables[0].Rows[i]["Country_Name"].ToString();
+                    company.CategoryName = dtDs.Tables[0].Rows[i]["Investment_Category_Name"].ToString();
                     company.CategoryId = Convert.ToInt32(dtDs.Tables[0].Rows[i]["CategoryId"]);
                     company.CountryId = Convert.ToInt32(dtDs.Tables[0].Rows[i]["CountryId"]);
-                    company.SectorId = Convert.ToInt32(dtDs.Tables[0].Rows[i]["CategoryId"]);
+                    company.SectorId = Convert.ToInt32(dtDs.Tables[0].Rows[i]["SectorId"]);
                     company.RiskId = Convert.ToInt32(dtDs.Tables[0].Rows[i]["RiskId"]);
                     list.Add(company);
 
@@ -226,10 +230,16 @@ namespace SmartInvestment
             {
                 if (dataGridView1.SelectedRows.Count > 1)
                 {
-                    var selectedIdea = dataGridView1.SelectedRows[0].DataBoundItem as InvestmentIdea;
-                    txtBx_CompanyId.Text = selectedIdea.IdeaId.ToString();
-                    txtBx_Company_Name.Text = selectedIdea.Idea_Name;
-                    cmbBx_InvestmentCategories.SelectedItem = InvestmentCategorys.Find(x => x.CategoryId == selectedIdea.CategoryID);
+                    var selectedCompany = dataGridView1.SelectedRows[0].DataBoundItem as Company;
+                    txtBx_CompanyId.Text = selectedCompany.Company_Id.ToString();
+                    txtBx_Company_Name.Text = selectedCompany.Company_Name;
+                    txtBx_Stock_Value.Text = selectedCompany.Current_Stock_Value.ToString();
+                    txtBx_Previous_Stock_Value.Text = selectedCompany.Prev_Month_Stock_Value.ToString();
+                    cmbBx_InvestmentCategories.SelectedItem = InvestmentCategorys.Find(x => x.CategoryId == selectedCompany.CategoryId);
+                    cmbBx_Country.SelectedItem = Countries.Find(x => x.Country_Id == selectedCompany.CountryId);
+                    cmbBx_Sector.SelectedItem = Sectors.Find(x => x.Sector_Id == selectedCompany.SectorId);
+                    cmbBx_Risk.SelectedItem = Risks.Find(x => x.Risk_Id == selectedCompany.RiskId);
+
                 }
             }
             catch(Exception ex)
@@ -246,13 +256,30 @@ namespace SmartInvestment
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    var selectedIdea = dataGridView1.SelectedRows[0].DataBoundItem as InvestmentIdea;
-                    txtBx_CompanyId.Text = selectedIdea.IdeaId.ToString();
-                    txtBx_Company_Name.Text = selectedIdea.Idea_Name;
+                    var selectedCompany = dataGridView1.SelectedRows[0].DataBoundItem as Company;
+                    txtBx_CompanyId.Text = selectedCompany.Company_Id.ToString();
+                    txtBx_Company_Name.Text = selectedCompany.Company_Name;
+                    txtBx_Stock_Value.Text = selectedCompany.Current_Stock_Value.ToString();
+                    txtBx_Previous_Stock_Value.Text = selectedCompany.Prev_Month_Stock_Value.ToString();
                     cmbBx_InvestmentCategories.SelectedItem = new
                     {
-                        CategoryId = selectedIdea.CategoryID,
-                        Category_Name = InvestmentCategorys.Find(x=>x.CategoryId == selectedIdea.CategoryID).Category_Name
+                        CategoryId = selectedCompany.CategoryId,
+                        Category_Name = InvestmentCategorys.Find(x=>x.CategoryId == selectedCompany.CategoryId).Category_Name
+                    };
+                    cmbBx_Country.SelectedItem = new
+                    {
+                        Country_Id = selectedCompany.CountryId,
+                        Country_Name = Countries.Find(x => x.Country_Id == selectedCompany.CountryId).Country_Name
+                    };
+                    cmbBx_Sector.SelectedItem = new
+                    {
+                        Sector_Id = selectedCompany.SectorId,
+                        Sector_Name = Sectors.Find(x => x.Sector_Id == selectedCompany.SectorId).Sector_Name
+                    };
+                    cmbBx_Risk.SelectedItem = new
+                    {
+                        Risk_Id = selectedCompany.RiskId,
+                        Risk_Name = Risks.Find(x => x.Risk_Id == selectedCompany.RiskId).Risk_Name
                     };
                     bttn_Update.Visible = true;
                     bttnDelete.Visible = true;
@@ -276,6 +303,8 @@ namespace SmartInvestment
             var company = new Company
             {
                 Company_Name = txtBx_Company_Name.Text,
+                Current_Stock_Value = Convert.ToDecimal(txtBx_Stock_Value.Text),
+                Prev_Month_Stock_Value = Convert.ToDecimal(txtBx_Previous_Stock_Value.Text),
                 CategoryId = Convert.ToInt32(cmbBx_InvestmentCategories.SelectedValue),
                 SectorId = Convert.ToInt32(cmbBx_Sector.SelectedValue),
                 CountryId = Convert.ToInt32(cmbBx_Country.SelectedValue),
@@ -322,6 +351,8 @@ namespace SmartInvestment
             {
                 txtBx_CompanyId.Text = "";
                 txtBx_Company_Name.Text = "";
+                txtBx_Stock_Value.Text = "";
+                txtBx_Previous_Stock_Value.Text = "";
             }
             dataGridView1.Focus();
         }
@@ -330,7 +361,7 @@ namespace SmartInvestment
         {
             if (!string.IsNullOrEmpty(txtBx_CompanyId.Text))
             {
-                DeleteIdea(Convert.ToInt32(txtBx_CompanyId.Text));
+                DeleteCompany(Convert.ToInt32(txtBx_CompanyId.Text));
                 this.companies = GetCompanies();
                 dataGridView1.DataSource = this.companies;
                 MessageBox.Show("Deleted Success!");
@@ -338,11 +369,11 @@ namespace SmartInvestment
             else
                 MessageBox.Show("Please select valid company!");
         }
-        private void DeleteIdea(int id)
+        private void DeleteCompany(int id)
         {
             try
             {
-               var result = oAccess.executeSql(SqlQueries.DeleteIdea(id));
+               var result = oAccess.executeSql(SqlQueries.DeleteCompany(id));
             }
             catch(Exception ex)
             {

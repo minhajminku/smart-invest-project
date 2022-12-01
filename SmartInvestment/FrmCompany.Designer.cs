@@ -124,7 +124,7 @@ namespace SmartInvestment
             this.bttn_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bttn_Update.Location = new System.Drawing.Point(638, 25);
             this.bttn_Update.Name = "bttn_Update";
-            this.bttn_Update.Size = new System.Drawing.Size(95, 59);
+            this.bttn_Update.Size = new System.Drawing.Size(106, 59);
             this.bttn_Update.TabIndex = 10;
             this.bttn_Update.Text = "Update";
             this.bttn_Update.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@ namespace SmartInvestment
             this.bttnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bttnSave.Location = new System.Drawing.Point(638, 82);
             this.bttnSave.Name = "bttnSave";
-            this.bttnSave.Size = new System.Drawing.Size(95, 59);
+            this.bttnSave.Size = new System.Drawing.Size(106, 59);
             this.bttnSave.TabIndex = 12;
             this.bttnSave.Text = "Save";
             this.bttnSave.UseVisualStyleBackColor = true;
@@ -157,9 +157,9 @@ namespace SmartInvestment
             // bttnDelete
             // 
             this.bttnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnDelete.Location = new System.Drawing.Point(638, 126);
+            this.bttnDelete.Location = new System.Drawing.Point(638, 133);
             this.bttnDelete.Name = "bttnDelete";
-            this.bttnDelete.Size = new System.Drawing.Size(95, 59);
+            this.bttnDelete.Size = new System.Drawing.Size(106, 59);
             this.bttnDelete.TabIndex = 13;
             this.bttnDelete.Text = "Delete";
             this.bttnDelete.UseVisualStyleBackColor = true;

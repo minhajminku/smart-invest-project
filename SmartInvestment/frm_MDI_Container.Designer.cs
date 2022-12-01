@@ -69,9 +69,9 @@ namespace SmartInvestment
             this.lbl_Title.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Title.Location = new System.Drawing.Point(344, 0);
             this.lbl_Title.Name = "lbl_Title";
-            this.lbl_Title.Size = new System.Drawing.Size(333, 41);
+            this.lbl_Title.Size = new System.Drawing.Size(361, 41);
             this.lbl_Title.TabIndex = 0;
-            this.lbl_Title.Text = "Investment Solutions";
+            this.lbl_Title.Text = "Smart Invest Solutions";
             // 
             // panel_Footer
             // 
@@ -168,7 +168,7 @@ namespace SmartInvestment
             this.IsMdiContainer = true;
             this.Name = "frm_MDI_Container";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Easy Investment ";
+            this.Text = "Smart Investment ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel_Top.ResumeLayout(false);
             this.panel_Top.PerformLayout();

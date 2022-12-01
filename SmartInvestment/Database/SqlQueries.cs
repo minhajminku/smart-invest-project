@@ -43,13 +43,19 @@ namespace SmartInvestment.Database
         {
             condition = investmentIdeaId != null ? " WHERE Investment_Idea_Id = " + investmentIdeaId : " ";
 
-            return String.Format("SELECT Investment_Idea_Id,Investment_Idea_Name,Investment_Category_Id,Created_Date FROM dbo.Investment_Idea {0}", condition);
+            return String.Format("SELECT Investment_Idea_Id,Investment_Idea_Name,Investment_Category_Id,Created_Date FROM dbo.Investment_Idea {0}",
+                condition);
         }
         public static string GetCompanies(int? companyId = null)
         {
             condition = companyId != null ? " WHERE Company_Id = " + companyId : " ";
 
-            return String.Format("SELECT Company_Id,Company_Name,Stock_Value,Previous_Month_Stock_Value,CategoryId,SectorId,CountryId,RiskId FROM dbo.Company_Master {0}", condition);
+            return String.Format("SELECT Company_Id,Company_Name,Stock_Value,Previous_Month_Stock_Value,IC.Investment_Category_Name,S.Sector_Name,R.Risk_Name,C.Country_Name,CategoryId,SectorId,CountryId,RiskId FROM dbo.Company_Master CM " +
+                " LEFT JOIN dbo.Investment_Category IC ON IC.Investment_Category_Id = CM.CategoryId" +
+                " LEFT JOIN dbo.Sectors S ON S.Sector_Id = CM.SectorId" +
+                " LEFT JOIN dbo.Risk R ON R.Risk_Id = CM.RiskId" +
+                " LEFT JOIN dbo.Country C ON C.Country_Id = CM.CountryId" +
+                "{0}", condition);
         }
         public static string GetClients(int? clientId = null)
         {
@@ -105,7 +111,7 @@ namespace SmartInvestment.Database
                                     " CategoryId = {3}, " +
                                     " SectorId = {4}, " +
                                     " CountryId = {5}, " +
-                                    " RiskId = {6}, " +
+                                    " RiskId = {6} " +
                                     " {7}",
                                     company.Company_Name,
                                     company.Current_Stock_Value,
@@ -205,6 +211,10 @@ namespace SmartInvestment.Database
         public static string DeleteIdea(int investmentIdeaId)
         {
             return String.Format("DELETE FROM dbo.Investment_Idea WHERE Investment_Idea_Id = {0}", investmentIdeaId);
+        }
+        public static string DeleteCompany(int companyId)
+        {
+            return String.Format("DELETE FROM dbo.Company_Master WHERE Company_Id = {0}", companyId);
         }
         public static string AddOrUpdateInvestmentCategory(InvestmentCategory category)
         {

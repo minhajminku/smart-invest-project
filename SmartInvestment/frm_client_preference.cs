@@ -17,7 +17,7 @@ namespace SmartInvestment
     public partial class frm_client_preference : Form
     {
 
-        private readonly DataAceess oAccess = new DataAceess();
+        private readonly DataAceess oAccess ;
         private DataSet ds = new DataSet();
         private List<InvestmentCategorySelect> categoryList = new List<InvestmentCategorySelect>();
         private List<SectorsSelect> sectorsList = new List<SectorsSelect>();
@@ -32,6 +32,7 @@ namespace SmartInvestment
         private List<ClientInvestmentPreference> clientPreferenceList; 
         public frm_client_preference(string clientId)
         {
+            oAccess = new DataAceess();
             ClientID = Convert.ToInt32(clientId);
             InitializeComponent();
             loadComboboxes();

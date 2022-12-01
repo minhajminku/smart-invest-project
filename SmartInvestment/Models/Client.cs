@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartInvestment.Models
 {
-   public class Client
+    public class Client
     {
         public int ClientId { get; set; }
         public string Client_First_Name { get; set; }
@@ -15,5 +15,10 @@ namespace SmartInvestment.Models
         public string Dmat_Number { get; set; }
         public string Mobile_Number { get; set; }
         public DateTime CreatedDate { get; set; }
+    }
+    public class ClientSelect
+    {
+        public int ClientId { get; set; }
+        public string Client_Name { get; set; }
     }
 }

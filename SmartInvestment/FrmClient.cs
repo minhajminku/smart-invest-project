@@ -16,9 +16,10 @@ namespace SmartInvestment
     {
         public List<Client> Clients { get; set; }
         public List<GenderSelect> ClientGenders { get; set; }
-        private readonly DataAceess oAccess = new DataAceess();
+        private readonly DataAceess oAccess ;
         public FrmClient()
         {
+            oAccess = new DataAceess();
             Clients = Getclients();
             ClientGenders = GetGenderList();
             InitializeComponent();

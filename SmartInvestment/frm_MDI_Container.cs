@@ -50,5 +50,10 @@ namespace SmartInvestment
             frm.MdiParent = frm_MDI_Container.ActiveForm;
             frm.Show();
         }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

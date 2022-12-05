@@ -35,5 +35,12 @@ namespace SmartInvestment
 
            
         }
+
+        private void btn_register_Click(object sender, EventArgs e)
+        {
+            frm_Registration frm = new frm_Registration();
+            frm.Show();
+            this.Hide();
+        }
     }
 }

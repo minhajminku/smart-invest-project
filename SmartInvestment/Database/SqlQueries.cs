@@ -15,6 +15,10 @@ namespace SmartInvestment.Database
         {
            return String.Format("SELECT User_Name,Email,Password FROM dbo.Users WHERE User_Name = '{0}' AND Password = '{1}' ", username, password) ;
         }
+        public static string GetUserBy_UserName(string username)
+        {
+            return String.Format("SELECT User_Name,Email,Password FROM dbo.Users WHERE User_Name = '{0}' ", username);
+        }
         public static string GetInvestmentCategories(int? invstCategiryId = null)
         {
             condition = invstCategiryId != null ? " WHERE Investment_Category_Id = " + invstCategiryId : " ";
@@ -203,6 +207,37 @@ namespace SmartInvestment.Database
                              client.Client_Gender,
                             "username");
             }
+        }
+        public static string Adduser(Users user)
+        {
+                return String.Format("INSERT INTO dbo.Users" +
+                        "(" +
+                            " First_Name," +
+                            " Last_Name," +
+                            " User_Name," +
+                            " Email," +
+                            " Password," +
+                            " Created_By," +
+                            " Created_Date," +
+                            " Is_RM" +
+                        " )" +
+                        " VALUES" +
+                        "( '{0}'," +
+                           " '{1}'," +
+                           " '{2}'," +
+                          " '{3}'," +
+                          " '{4}'," +
+                           " '{5}'," +
+                           " GETDATE()," +
+                           "1" +
+                            ")",
+                             user.First_Name,
+                             user.Last_Name,
+                             user.User_Name,
+                             user.Email,
+                             user.Password,
+                             user.User_Name);
+            
         }
         public static string DeleteClient(int clientId)
         {

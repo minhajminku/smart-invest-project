@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Registration.Designer.cs">
+      <DependentUpon>frm_Registration.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,7 @@
     <Compile Include="frm_MDI_Container.Designer.cs">
       <DependentUpon>frm_MDI_Container.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientInvestmentPreference.cs" />
     <Compile Include="Models\Company.cs" />
@@ -119,6 +126,9 @@
     <Compile Include="Models\SectorsClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm_Registration.resx">
+      <DependentUpon>frm_Registration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>

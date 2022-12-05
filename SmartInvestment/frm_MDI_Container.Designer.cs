@@ -39,7 +39,9 @@ namespace SmartInvestment
             this.bttn_Ideas = new System.Windows.Forms.Button();
             this.bttn_investmentCategories = new System.Windows.Forms.Button();
             this.bttn_Client = new System.Windows.Forms.Button();
+            this.btn_logout = new System.Windows.Forms.Button();
             this.panel_Top.SuspendLayout();
+            this.panel_Footer.SuspendLayout();
             this.panel_Headerbtn_Container.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +79,7 @@ namespace SmartInvestment
             // 
             this.panel_Footer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_Footer.Controls.Add(this.btn_logout);
             this.panel_Footer.Location = new System.Drawing.Point(103, 484);
             this.panel_Footer.Name = "panel_Footer";
             this.panel_Footer.Size = new System.Drawing.Size(1196, 47);
@@ -156,6 +159,16 @@ namespace SmartInvestment
             this.bttn_Client.UseVisualStyleBackColor = true;
             this.bttn_Client.Click += new System.EventHandler(this.bttn_Client_Click);
             // 
+            // btn_logout
+            // 
+            this.btn_logout.Location = new System.Drawing.Point(3, 3);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(85, 35);
+            this.btn_logout.TabIndex = 6;
+            this.btn_logout.Text = "Logout";
+            this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
+            // 
             // frm_MDI_Container
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -172,6 +185,7 @@ namespace SmartInvestment
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel_Top.ResumeLayout(false);
             this.panel_Top.PerformLayout();
+            this.panel_Footer.ResumeLayout(false);
             this.panel_Headerbtn_Container.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,5 +204,6 @@ namespace SmartInvestment
         private System.Windows.Forms.Button bttn_Ideas;
         private System.Windows.Forms.Button bttnInvestment;
         private System.Windows.Forms.Button bttnCompany;
+        private System.Windows.Forms.Button btn_logout;
     }
 }

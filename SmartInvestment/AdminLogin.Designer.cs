@@ -35,6 +35,7 @@ namespace SmartInvestment
             this.label2 = new System.Windows.Forms.Label();
             this.btn_login = new System.Windows.Forms.Button();
             this.label_wrong_cred = new System.Windows.Forms.Label();
+            this.btn_register = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtBx_User_Name
@@ -71,7 +72,7 @@ namespace SmartInvestment
             // 
             // btn_login
             // 
-            this.btn_login.Location = new System.Drawing.Point(328, 220);
+            this.btn_login.Location = new System.Drawing.Point(394, 220);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(89, 34);
             this.btn_login.TabIndex = 4;
@@ -90,11 +91,22 @@ namespace SmartInvestment
             this.label_wrong_cred.Text = "Wrong credentials";
             this.label_wrong_cred.Visible = false;
             // 
+            // btn_register
+            // 
+            this.btn_register.Location = new System.Drawing.Point(297, 220);
+            this.btn_register.Name = "btn_register";
+            this.btn_register.Size = new System.Drawing.Size(89, 34);
+            this.btn_register.TabIndex = 7;
+            this.btn_register.Text = "Register";
+            this.btn_register.UseVisualStyleBackColor = true;
+            this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
+            // 
             // AdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_register);
             this.Controls.Add(this.label_wrong_cred);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.label2);
@@ -116,6 +128,7 @@ namespace SmartInvestment
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Label label_wrong_cred;
+        private System.Windows.Forms.Button btn_register;
     }
 }
 
